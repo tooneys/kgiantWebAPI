@@ -1,8 +1,6 @@
 ﻿using kgiantWebAPI.Utils;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace kgiantWebAPI.Controllers
 {
@@ -12,13 +10,14 @@ namespace kgiantWebAPI.Controllers
     {
         private readonly IConfiguration _config;
 
-        public SalesController(IConfiguration config) {
+        public SalesController(IConfiguration config)
+        {
             _config = config;
         }
 
         [HttpGet]
-        public IActionResult GetSalesAnalysisView() {
-
+        public IActionResult GetSalesAnalysisView()
+        {
             string dbconnectionString = _config.GetSection("ConnectionStrings").GetSection("JCConnection").Value;
             try
             {
